@@ -4,11 +4,11 @@
 
 <br>
 
-
 - Một trang web bán sách mà thui.
 - Không validate dữ liệu.
 - Không bảo mật.
 - Nhìn chung thì không có chức năng gì cả.
+- Còn chán mới có bản final.
 - PHP & MySQL
 - ahihi
 
