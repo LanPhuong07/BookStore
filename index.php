@@ -205,7 +205,7 @@ if(isset($_POST['submit']))
       <div class="container-fluid" id="header">
           <div class="row">
               <div class="col-md-3 col-lg-3" id="category">
-                  <div style="background:#D67B22;color:#fff;font-weight:800;border:none;padding:15px;">Danh mục sách</div>
+                  <div style="background:#D67B22;color:#fff;font-weight:800;border:none;padding:15px;">DANH MỤC SÁCH</div>
                   <ul>
                       <li> <a href="Product.php?value=entrance%20exam"> Entrance Exam </a> </li>
                       <li> <a href="Product.php?value=Literature%20and%20Fiction"> Literature & Fiction </a> </li>

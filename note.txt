@@ -1,12 +1,11 @@
 thêm trang profile -> update (P code)
-thêm chức năng comment + rate (P fe) 
-thêm chức năng rate bằng số, thêm cột rate trong db
-thêm lịch sử mua hàng (hiển thị sách + số lượng) -> hiển thị rate
-sửa add post -> add book
-add account -> hiểu add admin
-regis thêm trường (P làm)
-chỉnh lại điều hướng
-sửa logo trang admin
+thêm chức năng comment + rate (P fe, T be)
+thêm lịch sử mua hàng (hiển thị sách + số lượng) -> hiển thị rate (T)
+sửa add post -> add book (T)
+add account -> hiểu là add admin (P)
+regis thêm trường (P)
+chỉnh lại điều hướng (T+P)
+sửa logo trang admin (P)
 admin/postimage ở trong img
-sửa file login.php
+sửa file login.php (T)
 ---------------
