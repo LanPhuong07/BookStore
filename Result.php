@@ -130,7 +130,7 @@ if(!isset($_SESSION['user']))
                 </li>';
               } 
             else
-                echo' <li> <a href="destroy.php" class="btn btn-lg"> LogOut </a> </li>';
+                echo' <li> <a href="destroy.php" class="btn btn-lg">Đăng xuất</a> </li>';
             ?>
 
         </ul>
@@ -141,7 +141,7 @@ if(!isset($_SESSION['user']))
       <div id="searchbox" class="container-fluid" style="width:112%;margin-left:-6%;margin-right:-6%;">
           <div>
               <form role="search" method="POST" action="Result.php">
-                  <input type="text" class="form-control" name="keyword" style="width:80%;margin:20px 10% 20px 10%;" placeholder="Search for a Book , Author Or Category">
+                  <input type="text" class="form-control" name="keyword" style="width:80%;margin:20px 10% 20px 10%;" placeholder="Tìm kiếm theo tên sách, tác giả, hoặc danh mục">
               </form>
           </div>
       </div>

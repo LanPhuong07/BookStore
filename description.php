@@ -15,9 +15,17 @@ if(!isset($_SESSION['user']))
     <meta name="author" content="Shivangi Gupta">
     <title> Online Bookstore</title>
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="css/style.css">
+	  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+	  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+	  <link rel='stylesheet' href='https://raw.githubusercontent.com/kartik-v/bootstrap-star-rating/master/css/star-rating.min.css'>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/my.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
+    <script src=rating.js></script>
     <style>  
         @media only screen and (width: 768px) { body{margin-top:150px;}}
         @media only screen and (max-width: 760px) { #books .row{margin-top:10px;}}
@@ -28,6 +36,28 @@ if(!isset($_SESSION['user']))
         #description hr{margin:auto;}
         #service{background:#fff;padding:20px 10px;width:112%;margin-left:-6%;margin-right:-6%;}
         .glyphicon {color:#D67B22;}
+        .checked {color: orange; }
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+        /*reset css*/
+        div,label{margin:0;padding:0;}
+        body{margin:20px;}
+        h1{font-size:1.5em;margin:10px;}
+        /****** Style Star Rating Widget *****/
+        #rating{border:none;float:left;}
+        #rating>input{display:none;}/*ẩn input radio - vì chúng ta đã có label là GUI*/
+        #rating>label:before{margin:5px;font-size:1.25em;font-family:FontAwesome;display:inline-block;content:"\f005";}/*1 ngôi sao*/
+        #rating>.half:before{content:"\f089";position:absolute;}/*0.5 ngôi sao*/
+        #rating>label{color:#ddd;float:right;}/*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
+        /*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
+        #rating>input:checked~label,
+        #rating:not(:checked)>label:hover, 
+        #rating:not(:checked)>label:hover~label{color:#FFD700;}
+        /* Hover vào các sao phía trước ngôi sao đã chọn*/
+        #rating>input:checked+label:hover,
+        #rating>input:checked~label:hover,
+        #rating>label:hover~input:checked~label,
+        #rating>input:checked~label:hover~label{color:#FFED85;}
     </style>
 
 </head>
@@ -52,8 +82,8 @@ if(!isset($_SESSION['user']))
                   if(isset($_SESSION['user']))
                     {
                       echo'
-                    <li><a href="cart.php" class="btn btn-md"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
-                    <li><a href="destroy.php" class="btn btn-md"> <span class="glyphicon glyphicon-log-out">LogOut</span></a></li>
+                    <li><a href="cart.php" class="btn btn-md"><span class="glyphicon glyphicon-shopping-cart">Giỏ hàng</span></a></li>
+                    <li><a href="destroy.php" class="btn btn-md"> <span class="glyphicon glyphicon-log-out">Đăng xuất</span></a></li>
                          ';
                     }
                ?>
@@ -63,10 +93,10 @@ if(!isset($_SESSION['user']))
     </nav>
 
     <div id="top" >
-        <div id="searchbox" class="container-fluid" style="width:112%;margin-left:-6%;margin-right:-6%;">
+        <div id="searchbox" class="container-fluid" style="width:112%;margin-left:-6%;margin-right:-6%;"><br><br>
             <div>
                 <form role="search" action="Result.php" method="post">
-                    <input type="text" name="keyword" class="form-control" placeholder="Search for a Book , Author Or Category" style="width:80%;margin:20px 10% 20px 10%;">
+                    <input type="text" name="keyword" class="form-control" placeholder="" style="width:80%;margin:20px 10% 20px 10%;">
                 </form>
             </div>
         </div>
@@ -77,7 +107,7 @@ if(!isset($_SESSION['user']))
     include "dbconnect.php";
     $PID=$_GET['ID'];
     $query = "SELECT * FROM products WHERE PID='$PID'";
-    $result = mysqli_query ($con,$query)or die(mysql_error());
+    $result = mysqli_query ($con,$query) or die();
 
         if(mysqli_num_rows($result) > 0) 
         {   
@@ -107,8 +137,8 @@ echo '
                                echo ' </select>';
 echo'                           <br><br><br>
                                 <a id="buyLink" href="'.$target.'" class="btn btn-lg btn-danger" style="padding:15px;color:white;text-decoration:none;"> 
-                                    ADD TO CART for Rs '.$row["Price"] .' <br>
-                                    <span style="text-decoration:line-through;"> RS'.$row["MRP"].'</span> 
+                                    Thêm vào giỏ hàng '.$row["Price"] .' <br>
+                                    <span style="text-decoration:line-through;"> VND' .$row["MRP"]. '</span> 
                                     | '.$row["Discount"].'% discount
                                  </a> 
 
@@ -116,27 +146,59 @@ echo'                           <br><br><br>
     </div>
           </div>
      ';
+    // Description
 echo '
           <div class="container-fluid" id="description">
     <div class="row">
-      <h2> Description </h2> 
+      <h2>Mô tả</h2> 
                         <p>'.$row['Description'] .'</p>
                         <pre style="background:inherit;border:none;">
-   PRODUCT CODE  '.$row["PID"].'   <hr> 
-   TITLE         '.$row["Title"].' <hr> 
-   AUTHOR        '.$row["Author"].' <hr>
-   AVAILABLE     '.$row["Available"].' <hr> 
-   PUBLISHER     '.$row["Publisher"].' <hr> 
-   EDITION       '.$row["Edition"].' <hr>
-   LANGUAGE      '.$row["Language"].' <hr>
-   PAGES         '.$row["page"].' <hr>
-   WEIGHT        '.$row["weight"].' <hr>
+   Mã sách        '.$row["PID"].'   <hr> 
+   Tiêu đề        '.$row["Title"].' <hr> 
+   Tác giả        '.$row["Author"].' <hr>
+   Còn lại        '.$row["Available"].' <hr> 
+   Nhà xuất bản   '.$row["Publisher"].' <hr> 
+   Tái bản        '.$row["Edition"].' <hr>
+   Ngôn ngữ       '.$row["Language"].' <hr>
+   Số trang       '.$row["page"].' <hr>
+   Khối lượng     '.$row["weight"].' <hr>
                         </pre>
     </div>
   </div>
-';
-
-            
+';  
+echo '
+<div class="container-fluid" id="description">
+    <div class="row">
+    <h2>Đánh giá</h2> 
+      </div>
+      <form action="description.php">
+      <div class="star-rating">
+      <div id="rating">
+    <input type="radio" id="star5" name="rating" value="5" />
+    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+ 
+    <input type="radio" id="star4" name="rating" value="4" />
+    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+ 
+    <input type="radio" id="star3" name="rating" value="3" />
+    <label class = "full" for="star3" title="Meh - 3 stars"></label>
+ 
+    <input type="radio" id="star2" name="rating" value="2" />
+    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+ 
+    <input type="radio" id="star1" name="rating" value="1" />
+    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+</div>
+<input type="text" name="keyword" class="form-control" placeholder="Đánh giá tác phẩm" style="width:80%;margin:20px 10% 20px 10%;">
+          <div class="btn">
+          <a class="btn btn-lg btn-danger" style="padding:15px;color:white;text-decoration:none;"> 
+          Gửi đánh giá
+       </a> 
+          </div>
+        </form>
+      </div>
+    </div>
+';       
             }
         }
     echo '</div>';
@@ -146,25 +208,25 @@ echo '
 
 <div class="container-fluid" id="service">
       <div class="row">
+        <div class="col-sm-6 col-md-3 text-center">
+               <span class="glyphicon glyphicon-heart"></span> <br>
+               PTIT<br>
+               Khoan An toàn thông tin
+          </div>
           <div class="col-sm-6 col-md-3 text-center">
                <span class="glyphicon glyphicon-heart"></span> <br>
-               24X7 Care <br>
-               Happy to help 24X7, call us on 0120-3062244 or click here
+               Lập trình web <br>
+               Giảng viên: Nguyễn Hải Dũng
           </div>
           <div class="col-sm-6 col-md-3 text-center">
                <span class="glyphicon glyphicon-ok"></span> <br>
-               Trust <br>
-               Your money is yours! All refunds come with no question asked guarantee.
+               Sinh viên <br>
+               Vũ Lan Phương - B19DCAT142
           </div>
           <div class="col-sm-6 col-md-3 text-center">
                <span class="glyphicon glyphicon-check"></span> <br>
-               Assurance <br>
-               We provide 100% assurance. If you have any issue, your money is immediately refunded. Sit back and enjoy your shopping.
-          </div>
-          <div class="col-sm-6 col-md-3 text-center">
-               <span class="glyphicon glyphicon-tags"></span> <br>
-               24X7 Care <br>
-               Happiness is guaranteed. If we fall short of your expectations, give us a shout.
+               Bài tập lớn 2 <br>
+               Cửa hàng sách
           </div>
       </div>
 </div>

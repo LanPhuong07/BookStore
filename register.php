@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
         $username=$_POST['register_username'];
         $password=$_POST['register_password'];
         $query="select * from users where UserName = '$username'";
-        $result=mysqli_query($con,$query) or die(mysql_error);
+        $result=mysqli_query($con,$query) or die();
         if(mysqli_num_rows($result)>0)
         {   
               header("Location: index.php?register=" . "Username is already taken...Use different username");

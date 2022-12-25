@@ -2,7 +2,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a class="navbar-brand" href="index.php"><img alt="Brand" src="logo.jpg" style="width: 118px;margin-top: -7px;margin-left: -10px;"></a>
+                    <a class="navbar-brand" href="index.php"><img alt="Brand" src="logo.jpg" style="width: 220px;margin-top: -7px;margin-left: -10px;"></a>
                 </div>
 
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -34,7 +34,7 @@
                                         <h5>Hi, Admin</h5>
                                     </li>
                            
-                                    <li><a href="logout.php"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                                    <li><a href="logout.php"><i class="ti-power-off m-r-5"></i>Đăng xuất</a></li>
                                 </ul>
                             </li>
 

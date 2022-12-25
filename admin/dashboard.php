@@ -2,11 +2,12 @@
 session_start();
 include('includes/config.php');
 error_reporting(0);
-if(strlen($_SESSION['login'])==0)
-  { 
-header('location:index.php');
-}
-else{
+//if(strlen($_SESSION['login'])==0)
+//  {
+//header('location:index.php');
+//}
+//else
+{
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +44,7 @@ else{
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                <a class="navbar-brand" href="index.php"><img alt="Brand" src="img/logo.jpg" style="width: 118px;margin-top: -7px;margin-left: -10px;"></a>
+                <a class="navbar-brand" href="index.php"><img alt="Brand" src="img/logo.jpg" style="width: 220px;margin-top: -7px;margin-left: -10px;"></a>
 
                 </div>
 

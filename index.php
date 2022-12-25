@@ -21,7 +21,7 @@ if(isset($_POST['submit']))
         $username=$_POST['login_username'];
         $password=$_POST['login_password'];
         $query = "SELECT * from users where UserName ='$username' AND Password='$password'";
-        $result = mysqli_query($con,$query)or die(mysql_error());
+        $result = mysqli_query($con,$query)or die();
         if(mysqli_num_rows($result) > 0)
         {
              $row = mysqli_fetch_assoc($result);
@@ -41,7 +41,7 @@ if(isset($_POST['submit']))
         $username=$_POST['register_username'];
         $password=$_POST['register_password'];
         $query="select * from users where UserName = '$username'";
-        $result=mysqli_query($con,$query) or die(mysql_error);
+        $result=mysqli_query($con,$query) or die();
         if(mysqli_num_rows($result)>0)
         {   
                print'
@@ -181,9 +181,10 @@ if(isset($_POST['submit']))
             </li>';
           } 
         else
-          {   echo' <li> <a href="#" class="btn btn-lg"> Hello ' .$_SESSION['user']. '.</a></li>
-                    <li> <a href="cart.php" class="btn btn-lg"> Cart </a> </li>; 
-                    <li> <a href="destroy.php" class="btn btn-lg"> LogOut </a> </li>';
+          {   echo' 
+            // <li> <a href="#" class="btn btn-lg"> Hello ' .$_SESSION['user']. '.</a></li>
+                    <li> <a href="cart.php" class="btn btn-lg">Giỏ hàng</a> </li>; 
+                    <li> <a href="destroy.php" class="btn btn-lg">Đăng xuất</a> </li>';
                
           }
 ?>
@@ -196,7 +197,7 @@ if(isset($_POST['submit']))
       <div id="searchbox" class="container-fluid" style="width:112%;margin-left:-6%;margin-right:-6%;">
           <div>
               <form role="search" method="POST" action="Result.php">
-                  <input type="text" class="form-control" name="keyword" style="width:80%;margin:20px 10% 20px 10%;" placeholder="Search for a Book , Author Or Category">
+                  <input type="text" class="form-control" name="keyword" style="width:80%;margin:20px 10% 20px 10%;" placeholder="Tìm kiếm theo tên sách, tác giả, hoặc danh mục">
               </form>
           </div>
       </div>
@@ -204,7 +205,7 @@ if(isset($_POST['submit']))
       <div class="container-fluid" id="header">
           <div class="row">
               <div class="col-md-3 col-lg-3" id="category">
-                  <div style="background:#D67B22;color:#fff;font-weight:800;border:none;padding:15px;"> The Book Shop </div>
+                  <div style="background:#D67B22;color:#fff;font-weight:800;border:none;padding:15px;">Danh mục sách</div>
                   <ul>
                       <li> <a href="Product.php?value=entrance%20exam"> Entrance Exam </a> </li>
                       <li> <a href="Product.php?value=Literature%20and%20Fiction"> Literature & Fiction </a> </li>
@@ -271,12 +272,12 @@ if(isset($_POST['submit']))
           <div class="col-sm-6 col-md-3 col-lg-3">
            <a href="description.php?ID=NEW-1&category=new">
               <div class="book-block">
-                  <div class="tag">New</div>
+                  <div class="tag">Mới</div>
                   <div class="tag-side"><img src="img/tag.png"></div>
                   <img class="book block-center img-responsive" src="img/new/1.jpg">
                   <hr>
                   Like A Love Song <br>
-                  Rs 113  &nbsp
+                  VND 113  &nbsp
                   <span style="text-decoration:line-through;color:#828282;"> 175 </span>
                   <span class="label label-warning">35%</span>
               </div>
@@ -285,12 +286,12 @@ if(isset($_POST['submit']))
           <div class="col-sm-6 col-md-3 col-lg-3">
            <a href="description.php?ID=NEW-2&category=new">
               <div class="book-block">
-                  <div class="tag">New</div>
+                  <div class="tag">Mới</div>
                   <div class="tag-side"><img src="img/tag.png"></div>
                   <img class="block-center img-responsive" src="img/new/2.jpg">
                   <hr>
                   General Knowledge 2017  <br>
-                  Rs 68 &nbsp
+                  VND 68 &nbsp
                   <span style="text-decoration:line-through;color:#828282;"> 120 </span>
                   <span class="label label-warning">43%</span>
               </div>
@@ -299,12 +300,12 @@ if(isset($_POST['submit']))
           <div class="col-sm-6 col-md-3 col-lg-3">
            <a href="description.php?ID=NEW-3&category=new">
               <div class="book-block">
-                  <div class="tag">New</div>
+                  <div class="tag">Mới</div>
                   <div class="tag-side"><img src="img/tag.png"></div>
                   <img class="block-center img-responsive" src="img/new/3.png">
                   <hr>
                   Indian Family Bussiness Mantras <br>
-                  Rs 400 &nbsp
+                  VND 400 &nbsp
                   <span style="text-decoration:line-through;color:#828282;"> 595 </span>
                   <span class="label label-warning">33%</span>
               </div>
@@ -313,12 +314,12 @@ if(isset($_POST['submit']))
           <div class="col-sm-6 col-md-3 col-lg-3">
            <a href="description.php?ID=NEW-4&category=new">
               <div class="book-block">
-                  <div class="tag">New</div>
+                  <div class="tag">Mới</div>
                   <div class="tag-side"><img src="img/tag.png"></div>
                   <img class="block-center img-responsive" src="img/new/4.jpg">
                   <hr>
                   Kiran s SSC Mathematics Chapterwise Solutions <br>
-                  Rs 289 &nbsp
+                  VND 289 &nbsp
                   <span style="text-decoration:line-through;color:#828282;"> 435 </span>
                   <span class="label label-warning">33%</span>
               </div>
@@ -328,7 +329,7 @@ if(isset($_POST['submit']))
   </div>
 
   <div class="container-fluid" id="author">
-      <h3 style="color:#D67B22;"> POPULAR AUTHORS </h3>
+      <h3 style="color:#D67B22;">NHỮNG TÁC GIẢ NỔI TIẾNG</h3>
       <div class="row">
           <div class="col-sm-5 col-md-3 col-lg-3">
               <a href="Author.php?value=Durjoy%20Datta"><img class="img-responsive center-block" src="img/popular-author/0.jpg"></a>
@@ -366,9 +367,9 @@ if(isset($_POST['submit']))
               </div>
               <div class="col-sm-7 col-md-5 col-lg-5">
                   <div class="row text-center">
-                      <h2>Let's Get In Touch!</h2>
+                      <h2>Book Bird</h2>
                       <hr class="primary">
-                      <p>Still Confused? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                      <p>Chắp cách cho hy vọng, bay lên những ước mơ</p>
                   </div>
                   <div class="row">
                       <div class="col-md-6 text-center">
@@ -377,7 +378,7 @@ if(isset($_POST['submit']))
                       </div>
                       <div class="col-md-6 text-center">
                           <span class="glyphicon glyphicon-envelope"></span>
-                          <p>BookStore@gmail.com</p>
+                          <p>chiryu.vu@gmail.com</p>
                       </div>
                   </div>
               </div>
@@ -406,47 +407,6 @@ if(isset($_POST['submit']))
           </div>
       </div>
   </footer>
-
-<div class="container">
-  <!-- Trigger the modal with a button -->
-  <button type="button" id="query_button" class="btn btn-lg" data-toggle="modal" data-target="#query">Ask query</button>
-  <!-- Modal -->
-  <div class="modal fade" id="query" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header text-center">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Ask your query here</h4>
-          </div>
-          <div class="modal-body">           
-                    <form method="post" action="query.php" class="form" role="form">
-                        <div class="form-group">
-                             <label class="sr-only" for="name">Name</label>
-                             <input type="text" class="form-control"  placeholder="Your Name" name="sender" required>
-                        </div>
-                        <div class="form-group">
-                             <label class="sr-only" for="email">Email</label>
-                             <input type="email" class="form-control" placeholder="abc@gmail.com" name="senderEmail" required>
-                        </div>
-                        <div class="form-group">
-                             <label class="sr-only" for="query">Message</label>
-                             <textarea class="form-control" rows="5" cols="30" name="message" placeholder="Your Query" required></textarea>
-                        </div>
-                        <div class="form-group">
-                              <button type="submit" name="submit" value="query" class="btn btn-block">
-                                                              Send Query
-                               </button>
-                        </div>
-                    </form>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-      </div>
-    </div>  
-  </div>
-</div>
-
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->

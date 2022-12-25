@@ -158,7 +158,7 @@
 	            </li>';
 	          } 
 	        else
-	            echo' <li> <a href="destroy.php" class="btn btn-lg"> LogOut </a> </li>';
+	            echo' <li> <a href="destroy.php" class="btn btn-lg"> Đăng xuất </a> </li>';
 	        ?>
 
         </ul>
@@ -169,7 +169,7 @@
       <div id="searchbox" class="container-fluid" style="width:112%;margin-left:-6%;margin-right:-6%;">
           <div>
               <form role="search" method="POST" action="Result.php">
-                  <input type="text" class="form-control" name="keyword" style="width:80%;margin:20px 10% 20px 10%;" placeholder="Search for a Book , Author Or Category">
+                  <input type="text" class="form-control" name="keyword" style="width:80%;margin:20px 10% 20px 10%;" placeholder="Tìm kiếm theo tên sách, tác giả, hoặc danh mục">
               </form>
           </div>
       </div>
@@ -180,7 +180,7 @@
 echo '<div class="container-fluid" id="cart">
       <div class="row">
           <div class="col-xs-12 text-center" id="heading">
-                 <h2 style="color:#D67B22;text-transform:uppercase;">  YOUR CART </h2>
+                 <h2 style="color:#D67B22;text-transform:uppercase;">GIỎ HÀNG CỦA BẠN</h2>
            </div>
         </div>';
 	if(isset($_SESSION['user']))

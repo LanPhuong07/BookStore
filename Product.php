@@ -50,8 +50,8 @@ if(!isset($_SESSION['user']))
                   if(isset($_SESSION['user']))
                     {
                       echo'
-                    <li><a href="cart.php" class="btn btn-md"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
-                    <li><a href="destroy.php" class="btn btn-md"> <span class="glyphicon glyphicon-log-out">LogOut</span></a></li>
+                    <li><a href="cart.php" class="btn btn-md"><span class="glyphicon glyphicon-shopping-cart">Giỏ hàng</span></a></li>
+                    <li><a href="destroy.php" class="btn btn-md"> <span class="glyphicon glyphicon-log-out">Đăng xuất</span></a></li>
                          ';
                     }
                ?>
@@ -64,7 +64,7 @@ if(!isset($_SESSION['user']))
         <div id="searchbox" class="container-fluid" style="width:112%;margin-left:-6%;margin-right:-6%;">
             <div>
                 <form role="search" action="Result.php" method="post">
-                    <input type="text" name="keyword" class="form-control" placeholder="Search for a Book , Author Or Category" style="width:80%;margin:20px 10% 20px 10%;">
+                    <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm theo tên sách, tác giả, hoặc danh mục" style="width:80%;margin:20px 10% 20px 10%;">
                 </form>
             </div>
         </div>

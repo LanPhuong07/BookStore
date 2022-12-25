@@ -1,0 +1,12 @@
+thêm trang profile -> update (P code)
+thêm chức năng comment + rate (P fe) 
+thêm chức năng rate bằng số, thêm cột rate trong db
+thêm lịch sử mua hàng (hiển thị sách + số lượng) -> hiển thị rate
+sửa add post -> add book
+add account -> hiểu add admin
+regis thêm trường (P làm)
+chỉnh lại điều hướng
+sửa logo trang admin
+admin/postimage ở trong img
+sửa file login.php
+---------------
