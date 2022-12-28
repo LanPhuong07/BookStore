@@ -2,7 +2,8 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a class="navbar-brand" href="index.php"><img alt="Brand" src="logo.jpg" style="width: 220px;margin-top: -7px;margin-left: -10px;"></a>
+                    <a class="navbar-brand" href="index.php"><img alt="Brand" src="logo.jpg"
+                            style="width: 220px;margin-top: -7px;margin-left: -10px;"></a>
                 </div>
 
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -16,24 +17,27 @@
                                     <i class="mdi mdi-menu"></i>
                                 </button>
                             </li>
-                     
-                    
+
+
                         </ul>
 
                         <!-- Right(Notification) -->
                         <ul class="nav navbar-nav navbar-right">
-                          
+
 
                             <li class="dropdown user-box">
-                                <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                                <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown"
+                                    aria-expanded="true">
+                                    <img src="assets/images/users/avatar-1.jpg" alt="user-img"
+                                        class="img-circle user-img">
                                 </a>
 
-                                <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
+                                <ul
+                                    class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
                                     <li>
                                         <h5>Hi, Admin</h5>
                                     </li>
-                           
+
                                     <li><a href="logout.php"><i class="ti-power-off m-r-5"></i>Đăng xuất</a></li>
                                 </ul>
                             </li>

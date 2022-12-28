@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 25, 2022 at 06:33 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Máy chủ: 127.0.0.1:3307
+-- Thời gian đã tạo: Th12 26, 2022 lúc 02:41 PM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bookstore`
+-- Cơ sở dữ liệu: `bookstore`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Cấu trúc bảng cho bảng `cart`
 --
 
 CREATE TABLE `cart` (
@@ -34,17 +34,18 @@ CREATE TABLE `cart` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cart`
+-- Đang đổ dữ liệu cho bảng `cart`
 --
 
 INSERT INTO `cart` (`Customer`, `Product`, `Quantity`) VALUES
 ('admin', 'NEW-3', 1),
-('admin', 'NEW-1', 1);
+('admin', 'NEW-1', 100),
+('admin', 'NEW-4', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Cấu trúc bảng cho bảng `products`
 --
 
 CREATE TABLE `products` (
@@ -65,7 +66,7 @@ CREATE TABLE `products` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `products`
+-- Đang đổ dữ liệu cho bảng `products`
 --
 
 INSERT INTO `products` (`PID`, `Title`, `Author`, `MRP`, `Price`, `Discount`, `Available`, `Publisher`, `Edition`, `Category`, `Description`, `Language`, `page`, `weight`) VALUES
@@ -195,12 +196,17 @@ INSERT INTO `products` (`PID`, `Title`, `Author`, `MRP`, `Price`, `Discount`, `A
 ('LIT-32', 'Career Of Evil : A Cormoran Strike Novel', 'J K Rowling', 699, 365, 35, 23, 'Little, Brown Book Group', '1', 'Literature & Fiction', 'The third book in the highly acclaimed crime fiction series by J. K. Rowling, writing under the pseudonym Robert Galbraith. When a mysterious package is delivered to Robin Ellacott, she is horrified to discover that it contains a woman\'s severed leg. Her boss, private detective Cormoran Strike, is less surprised but no less alarmed. There are four people from his past who he thinks could be responsible - and Strike knows that any one of them is capable of sustained and unspeakable brutality. With the police focusing on the one suspect Strike is increasingly sure is not the perpetrator, he and Robin take matters into their own hands and delve into the dark and twisted worlds of the other three men. But as more horrendous acts occur, time is running out for the two of them... A fiendishly clever mystery with unexpected twists around every corner, Career of Evil is also a gripping story of a man and a woman at a crossroads in their personal and professional lives. You will not be able to put this book down.\r\n\r\nAbout the Author\r\n\r\nRobert Galbraith is a pseudonym for J. K. Rowling, bestselling author of the Harry Potter series and The Casual Vacancy. Career of Evil is the third book in the highly acclaimed Cormoran Strike crime fiction series. The Cuckoos Calling was published in 2013 and The Silkworm in 2014. Robert Galbraiths Cormoran Strike novels will be adapted for a major new television series for BBC One, produced by Bront Film and Television. Robert Galbraith / J. K. Rowling will not be available for interview or events.', 'English', 512, 500),
 ('LIT-33', 'Harry Potter And The Goblet Of Fire', 'J k Rowling', 699, 510, 27, 13, 'Bloomsbury', '1', 'Literature & Fiction', NULL, 'English', 427, 500),
 ('ACA-14', 'Life Mantras', 'Subrata Roy', 200, 158, 21, 11, 'Books', '1', 'Academic & Professional', NULL, 'Hindi', 260, 500),
-('ACA-15', 'Life Mantras', 'Subrata Roy', 200, 160, 21, 14, 'Books', '1', 'Academic & Professional', '\"After having gone through the book, you will definitely and convincingly realise that to achieve\r\n\r\npeace, true happiness, contentment, satisfaction and also to attain continuous progress in life\r\n\r\nin terms of material gains, respect and love, you need not depend on anybody in this world. It\r\n\r\nall depends on you. It is all in your hands.\" Saharasri Subrata Roy Sahara\r\n\r\n\"Nobody does anything for anyone. All do for themselves either for more and more material gains\r\n\r\nor to save and escape from any kind of material losses or from mental-emotional dissatisfaction or for\r\n\r\ngetting more and more mental-emotional satisfaction. Therefore, no one sacrifices for anyone. When\r\n\r\nno one does anything for anyone, there is no justification in expecting any returns.\"\r\n\r\nThe author goes on to explain that to make life truly beautiful, one also needs to understand the basic\r\n\r\ntruths with which we are born or the basic instincts inherent in us all. So for a positive outcome one\r\n\r\nhas to learn the psychological or the emotional aspects of life, in other words, the realities of life or the\r\n\r\nentire philosophy of life. As you get immersed in the potent energy of these \'Life Mantras\', you will\r\n\r\nslowly find a change, a sense of fulfillment, a self-motivation coming in you. You will thus be led to\r\n\r\nthe ultimate realization that the journey of life is indeed a truly blissful and an enlightening experience. \r\n\r\nAbout The Author\r\n\r\nSubrata Roy Sahara (born 1948) popularly known as \'Saharasri\', is one of the most successful,\r\n\r\nbold, vociferous and talked-about figures of corporate India. When he laid the foundation of Sahara\r\n\r\nIndia Pariwar in 1978 with a capital of `2,000 (about $32) and three workers, who would have\r\n\r\nimagined his company\'s meteoric rise to a worth of `1,80,000 crore (about $27 billion) within\r\n\r\na span of thirty-seven years!\r\n\r\nA teacher, guide and a proud guardian to his over 1.2 million fellow workers, he ascribes his\r\n\r\nsuccess to his philosophy of \'Collective Materialism\' which means continuous collective growth\r\n\r\nfor collective sharing and caring.\r\n\r\nRenowned institutions like Harvard School of Business, USA; the Indian Institutes of Technology;\r\n\r\nthe Indian Institutes of Management; and Banaras Hindu University have invited him to address\r\n\r\ntheir faculty and students, besides which, a host of awards have been bestowed on him that include\r\n\r\nthe \'Indian Business Icon of the Year\' at the Powerbrands Hall of Fame Awards in London; the\r\n\r\nDoctor of Business (honoris causa) by the University of East London; and the highest honorary\r\n\r\ndegree, \'D. Litt.\' by the Lalit Narayan Mithila University, Bihar for his contributions in various fields.', 'English', 298, 500);
+('ACA-15', 'Life Mantras', 'Subrata Roy', 200, 160, 21, 14, 'Books', '1', 'Academic & Professional', '\"After having gone through the book, you will definitely and convincingly realise that to achieve\r\n\r\npeace, true happiness, contentment, satisfaction and also to attain continuous progress in life\r\n\r\nin terms of material gains, respect and love, you need not depend on anybody in this world. It\r\n\r\nall depends on you. It is all in your hands.\" Saharasri Subrata Roy Sahara\r\n\r\n\"Nobody does anything for anyone. All do for themselves either for more and more material gains\r\n\r\nor to save and escape from any kind of material losses or from mental-emotional dissatisfaction or for\r\n\r\ngetting more and more mental-emotional satisfaction. Therefore, no one sacrifices for anyone. When\r\n\r\nno one does anything for anyone, there is no justification in expecting any returns.\"\r\n\r\nThe author goes on to explain that to make life truly beautiful, one also needs to understand the basic\r\n\r\ntruths with which we are born or the basic instincts inherent in us all. So for a positive outcome one\r\n\r\nhas to learn the psychological or the emotional aspects of life, in other words, the realities of life or the\r\n\r\nentire philosophy of life. As you get immersed in the potent energy of these \'Life Mantras\', you will\r\n\r\nslowly find a change, a sense of fulfillment, a self-motivation coming in you. You will thus be led to\r\n\r\nthe ultimate realization that the journey of life is indeed a truly blissful and an enlightening experience. \r\n\r\nAbout The Author\r\n\r\nSubrata Roy Sahara (born 1948) popularly known as \'Saharasri\', is one of the most successful,\r\n\r\nbold, vociferous and talked-about figures of corporate India. When he laid the foundation of Sahara\r\n\r\nIndia Pariwar in 1978 with a capital of `2,000 (about $32) and three workers, who would have\r\n\r\nimagined his company\'s meteoric rise to a worth of `1,80,000 crore (about $27 billion) within\r\n\r\na span of thirty-seven years!\r\n\r\nA teacher, guide and a proud guardian to his over 1.2 million fellow workers, he ascribes his\r\n\r\nsuccess to his philosophy of \'Collective Materialism\' which means continuous collective growth\r\n\r\nfor collective sharing and caring.\r\n\r\nRenowned institutions like Harvard School of Business, USA; the Indian Institutes of Technology;\r\n\r\nthe Indian Institutes of Management; and Banaras Hindu University have invited him to address\r\n\r\ntheir faculty and students, besides which, a host of awards have been bestowed on him that include\r\n\r\nthe \'Indian Business Icon of the Year\' at the Powerbrands Hall of Fame Awards in London; the\r\n\r\nDoctor of Business (honoris causa) by the University of East London; and the highest honorary\r\n\r\ndegree, \'D. Litt.\' by the Lalit Narayan Mithila University, Bihar for his contributions in various fields.', 'English', 298, 500),
+('-126', '1', '1', 12, 11, 12, 12, '12', '12', 'anime', 'aaaaaaaaa', '12', 12, 12),
+('-127', '1', '1', 12, 11, 12, 12, '12', '12', 'anime', 'aaaaaaaaa', '12', 12, 12),
+('WIBU-1', '1', '1', 12, 11, 12, 12, '12', '12', 'anime', 'aaaaaaaaa', '12', 12, 12),
+('WIBU-2', '1', '1', 12, 11, 12, 12, '12', '12', 'anime', 'aaaaaaaaa', '12', 12, 12),
+('WIBU-3', '1', '1', 12, 11, 12, 12, '12', '12', 'anime', 'aaaaaaaaa', '12', 12, 12);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review`
+-- Cấu trúc bảng cho bảng `review`
 --
 
 CREATE TABLE `review` (
@@ -208,19 +214,32 @@ CREATE TABLE `review` (
   `PID` varchar(20) NOT NULL,
   `UserName` varchar(20) NOT NULL,
   `rating` int(11) NOT NULL,
-  `review` int(11) NOT NULL,
+  `review` varchar(1024) NOT NULL,
   `time` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `review`
+--
+
+INSERT INTO `review` (`reviewID`, `PID`, `UserName`, `rating`, `review`, `time`) VALUES
+(1, 'NEW-1', 'admin', 5, '0', '2022-12-26'),
+(2, 'NEW-1', 'admin', 5, '2147483647', '2022-12-26'),
+(3, 'NEW-1', 'admin', 5, 'aaaaaaaaaaaaaa', '2022-12-26'),
+(4, 'NEW-1', 'admin', 5, 'aaaaaaaaaaaaaa', '2022-12-26'),
+(5, 'NEW-1', 'admin', 4, '1', '2022-12-26'),
+(6, 'NEW-1', 'admin', 4, '1', '2022-12-26');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblcategory`
+-- Cấu trúc bảng cho bảng `tblcategory`
 --
 
 CREATE TABLE `tblcategory` (
   `id` int(11) NOT NULL,
   `CategoryName` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Short` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `Description` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
   `PostingDate` timestamp NULL DEFAULT current_timestamp(),
   `UpdationDate` timestamp NULL DEFAULT NULL,
@@ -228,19 +247,17 @@ CREATE TABLE `tblcategory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tblcategory`
+-- Đang đổ dữ liệu cho bảng `tblcategory`
 --
 
-INSERT INTO `tblcategory` (`id`, `CategoryName`, `Description`, `PostingDate`, `UpdationDate`, `Is_Active`) VALUES
-(1, 'Giải trí', 'Tin tức giải trí', '2021-12-31 10:00:00', '2021-12-31 10:00:00', 1),
-(2, 'Cuộc sống', 'Tin tức cuộc sống', '2021-12-31 10:00:00', '2021-12-31 10:00:00', 1),
-(3, 'Thể thao', 'Tin tức thể thao', '2021-12-31 10:00:00', '2021-12-31 10:00:00', 1),
-(4, 'Quân sự', 'Tin tức quân sự', '2021-12-31 10:00:00', '2021-12-31 10:00:00', 1);
+INSERT INTO `tblcategory` (`id`, `CategoryName`, `Short`, `Description`, `PostingDate`, `UpdationDate`, `Is_Active`) VALUES
+(1, 'Giải trí', 'ENT', 'aaaaaa', '2022-12-26 09:24:05', NULL, 1),
+(2, 'anime', 'WIBU', 'abcd', '2022-12-26 09:25:30', NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -257,7 +274,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`UID`, `UserName`, `Password`, `FullName`, `Gender`, `DoB`, `Email`, `Address`, `PhoneNumber`, `Role`) VALUES
@@ -265,34 +282,58 @@ INSERT INTO `users` (`UID`, `UserName`, `Password`, `FullName`, `Gender`, `DoB`,
 (2, 'admin', '1', 'Vũ Lan Phương', 'Female', '2001-07-20', 'phuong.attt.ptit@gmail.com', 'Hà Nội, Việt Nam', 123456789, 1);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `cart`
+-- Chỉ mục cho bảng `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`Customer`,`Product`),
   ADD KEY `Product` (`Product`);
 
 --
--- Indexes for table `products`
+-- Chỉ mục cho bảng `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`PID`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`reviewID`);
+
+--
+-- Chỉ mục cho bảng `tblcategory`
+--
+ALTER TABLE `tblcategory`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`UID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `review`
+--
+ALTER TABLE `review`
+  MODIFY `reviewID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `tblcategory`
+--
+ALTER TABLE `tblcategory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

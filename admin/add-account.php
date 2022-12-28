@@ -2,7 +2,7 @@
 session_start();
 include('includes/config.php');
 error_reporting(0);
-if (strlen($_SESSION['login']) == 0) {
+if ($_SESSION['role'] != 1) {
     header('location:index.php');
 } else {
 
@@ -48,12 +48,12 @@ if (strlen($_SESSION['login']) == 0) {
     <div id="wrapper">
 
         <!-- Top Bar Start -->
-        <?php include('includes/topheader.php');?>
+        <?php include('includes/topheader.php'); ?>
         <!-- Top Bar End -->
 
 
         <!-- ========== Left Sidebar Start ========== -->
-        <?php include('includes/leftsidebar.php');?>
+        <?php include('includes/leftsidebar.php'); ?>
         <!-- Left Sidebar End -->
 
         <div class="content-page">
@@ -95,16 +95,17 @@ if (strlen($_SESSION['login']) == 0) {
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!---Success Message--->
-                                        <?php if($msg){ ?>
+                                        <?php if ($msg) { ?>
                                         <div class="alert alert-success" role="alert">
-                                            <strong>Well done!</strong> <?php echo htmlentities($msg);?>
+                                            <strong>Well done!</strong> <?php echo htmlentities($msg); ?>
                                         </div>
                                         <?php } ?>
 
                                         <!---Error Message--->
-                                        <?php if($error){ ?>
+                                        <?php if ($error) { ?>
                                         <div class="alert alert-danger" role="alert">
-                                            <strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
+                                            <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
+                                        </div>
                                         <?php } ?>
 
 
@@ -136,15 +137,15 @@ if (strlen($_SESSION['login']) == 0) {
                                             <div class="form-group">
 
                                                 <script>
-                                                    var pos = document.URL.indexOf("message=") + 8;
-                                                    var userInput = document.URL.substring(pos, document.URL.length);
-                                                    document.write(unescape(userInput));
+                                                var pos = document.URL.indexOf("message=") + 8;
+                                                var userInput = document.URL.substring(pos, document.URL.length);
+                                                document.write(unescape(userInput));
                                                 </script>
                                                 <!-- message=<label>Gender</label><div class="col-sm-4"><select class = "form-control" onchange="java_script_:show()"><option value="Male">Male</option><option value="Female">Female</option></select></div><script>function show(){alert();}</script> -->
 
 
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <label class="col-md-2 control-label">&nbsp;</label>
                                                 <div class="col-md-10">
@@ -172,13 +173,13 @@ if (strlen($_SESSION['login']) == 0) {
 
             </div> <!-- content -->
 
-            <?php include('includes/footer.php');?>
+            <?php include('includes/footer.php'); ?>
 
         </div>
     </div>
 
     <script>
-        var resizefunc = [];
+    var resizefunc = [];
     </script>
 
     <!-- jQuery  -->

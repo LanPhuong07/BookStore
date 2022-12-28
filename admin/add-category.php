@@ -2,15 +2,16 @@
 session_start();
 include('includes/config.php');
 error_reporting(0);
-if (strlen($_SESSION['login']) == 0) {
+if ($_SESSION['role'] != 1) {
     header('location:index.php');
 } else {
 
     if (isset($_POST['submit'])) {
         $category = $_POST['category'];
+        $short = $_POST['short'];
         $description = $_POST['description'];
         $status = 1;
-        $query = mysqli_query($con, "insert into tblcategory(CategoryName,Description,Is_Active) values('$category','$description','$status')");
+        $query = mysqli_query($con, "insert into tblcategory(CategoryName,Description,Short,Is_Active) values('$category','$description','$short','$status')");
         if ($query) {
             $msg = "Category created ";
         } else {
@@ -49,12 +50,12 @@ if (strlen($_SESSION['login']) == 0) {
     <div id="wrapper">
 
         <!-- Top Bar Start -->
-        <?php include('includes/topheader.php');?>
+        <?php include('includes/topheader.php'); ?>
         <!-- Top Bar End -->
 
 
         <!-- ========== Left Sidebar Start ========== -->
-        <?php include('includes/leftsidebar.php');?>
+        <?php include('includes/leftsidebar.php'); ?>
         <!-- Left Sidebar End -->
 
         <div class="content-page">
@@ -96,16 +97,17 @@ if (strlen($_SESSION['login']) == 0) {
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <!---Success Message--->
-                                        <?php if($msg){ ?>
+                                        <?php if ($msg) { ?>
                                         <div class="alert alert-success" role="alert">
-                                            <strong>Well done!</strong> <?php echo htmlentities($msg);?>
+                                            <strong>Well done!</strong> <?php echo htmlentities($msg); ?>
                                         </div>
                                         <?php } ?>
 
                                         <!---Error Message--->
-                                        <?php if($error){ ?>
+                                        <?php if ($error) { ?>
                                         <div class="alert alert-danger" role="alert">
-                                            <strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
+                                            <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
+                                        </div>
                                         <?php } ?>
 
 
@@ -120,15 +122,21 @@ if (strlen($_SESSION['login']) == 0) {
                                     <div class="col-md-6">
                                         <form class="form-horizontal" name="category" method="post">
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">Category</label>
+                                                <label class="col-md-2 control-label">Thể loại</label>
                                                 <div class="col-md-10">
                                                     <input type="text" class="form-control" value="" name="category"
                                                         required>
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">Category Description</label>
+                                                <label class="col-md-2 control-label">Viết tắt</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" value="" name="short"
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Mô tả</label>
                                                 <div class="col-md-10">
                                                     <textarea class="form-control" rows="5" name="description"
                                                         required></textarea>
@@ -162,13 +170,13 @@ if (strlen($_SESSION['login']) == 0) {
 
             </div> <!-- content -->
 
-            <?php include('includes/footer.php');?>
+            <?php include('includes/footer.php'); ?>
 
         </div>
     </div>
 
     <script>
-        var resizefunc = [];
+    var resizefunc = [];
     </script>
 
     <!-- jQuery  -->
